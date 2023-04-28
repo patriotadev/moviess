@@ -31,7 +31,7 @@
       <button @click="handleFetchMovies" id="search-button">Search</button>
     </div>
     <h2 id="list-title" v-if="isSearch">Search result for "{{ searchInput }}"</h2>
-    <div v-if="movieList.length > 0" class="movie-container">
+    <div v-if="movieList" class="movie-container">
     <li v-for="(movie, index) in movieList" :key="index">
       <MovieCard @click="handleShowModal(movie)" :movie="movie"/>
     </li>
