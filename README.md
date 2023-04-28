@@ -1,24 +1,23 @@
-# dot_frontend
 
-## Project setup
-```
-yarn install
-```
+# Install and Running the App
 
-### Compiles and hot-reloads for development
-```
-yarn serve
+Install packages.
+```bash
+  yarn install
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
+Run server
+```bash
+  yarn serve
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Access the app through this url
+```bash
+  http://localhost:8080
+```
+
+Credential
+```bash
+  Email : admin@mail.com
+  Password : secret
+```
