@@ -69,7 +69,7 @@ export default {
     },
 
     handleFetchMovies() {
-      axios.get(`http://www.omdbapi.com/?apikey=1874392a&s=${this.searchInput}`)
+      axios.get(`https://www.omdbapi.com/?apikey=1874392a&s=${this.searchInput}`)
       .then((response) => {
         this.movieList = response.data.Search;
         this.$refs.search.value = '';
@@ -89,7 +89,7 @@ export default {
       if (!localStorage.getItem('user')) {
         this.$router.push('/signin');
       }
-      axios.get(`http://www.omdbapi.com/?apikey=1874392a&s=all`)
+      axios.get(`https://www.omdbapi.com/?apikey=1874392a&s=all`)
       .then((response) => {
         this.movieList = response.data.Search;
         })
