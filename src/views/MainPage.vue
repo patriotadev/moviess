@@ -9,7 +9,7 @@
           </div>
             <hr/>
           <div class="modal-body">
-              <img :src="movieDetail.Poster" alt="Movie Images" /> 
+              <img :src="movieDetail.Poster" alt="Movie Images" />
               <div class="description">
                 <p>Title : {{movieDetail.Title}}</p>
                 <p>Release Year : {{movieDetail.Year}}</p>
@@ -17,17 +17,19 @@
               </div>
           </div>
           <div class="modal-footer">
-            <button id="modal-submit-button" @click="isModalOpen = false">Close</button>      
+            <button id="modal-submit-button" @click="isModalOpen = false">Close</button>
         </div>
       </div>
     </div>
     </div>
     <div id="page-title">
       <h1><span>!</span>Moviess</h1>
-        <p @click="signOut">Sign out</p>
+      <p @click="signOut">Sign out</p>
     </div>
     <div id="search-container">
-      <input id="search-input" ref="search" placeholder="Search movies..." v-model="searchInput" @keyup.enter="handleFetchMovies" />
+      <input id="search-input"
+      ref="search" placeholder="Search movies..."
+      v-model="searchInput" @keyup.enter="handleFetchMovies" />
       <button @click="handleFetchMovies" id="search-button">Search</button>
     </div>
     <h2 id="list-title" v-if="isSearch">Search result for "{{ searchInput }}"</h2>
@@ -44,22 +46,22 @@
 
 <script>
 
-import axios from "axios";
+import axios from 'axios';
 import MovieCard from '../components/MovieCard.vue';
 
 export default {
   name: 'MainPage',
-  data () {
+  data() {
     return {
       searchInput: '',
       movieList: [],
       movieDetail: {},
       isSearch: false,
       isModalOpen: false,
-    }
+    };
   },
   components: {
-    MovieCard
+    MovieCard,
   },
   methods: {
 
@@ -70,37 +72,37 @@ export default {
 
     handleFetchMovies() {
       axios.get(`https://www.omdbapi.com/?apikey=1874392a&s=${this.searchInput}`)
-      .then((response) => {
-        this.movieList = response.data.Search;
-        this.$refs.search.value = '';
-        this.isSearch = true;
+        .then((response) => {
+          this.movieList = response.data.Search;
+          this.$refs.search.value = '';
+          this.isSearch = true;
         })
-      .catch((error) => {
-        console.log(error)
-      })
+        .catch((error) => {
+          console.log(error);
+        });
     },
 
-    signOut () {
-        localStorage.removeItem('user');
-        this.$router.push({path: '/signin'});
-    }
+    signOut() {
+      localStorage.removeItem('user');
+      this.$router.push({ path: '/signin' });
+    },
   },
-  mounted () {
-      if (!localStorage.getItem('user')) {
-        this.$router.push('/signin');
-      }
-      axios.get(`https://www.omdbapi.com/?apikey=1874392a&s=all`)
+  mounted() {
+    if (!localStorage.getItem('user')) {
+      this.$router.push('/signin');
+    }
+    axios.get('https://www.omdbapi.com/?apikey=1874392a&s=all')
       .then((response) => {
         this.movieList = response.data.Search;
-        })
-      .catch((error) => {
-        console.log(error)
       })
+      .catch((error) => {
+        console.log(error);
+      });
   },
   props: {
-    msg: String
-  }
-}
+    msg: String,
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

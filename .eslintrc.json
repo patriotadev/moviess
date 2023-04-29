@@ -1,0 +1,28 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:vue/vue3-essential",
+        "airbnb-base"
+    ],
+    "overrides": [
+    ],
+    "parserOptions": {
+        "ecmaVersion": 13,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "vue"
+    ],
+    "rules": {
+        "quotes": ["error", "single"],
+        // we want to force semicolons
+        "semi": ["error", "always"],
+        // we use 2 spaces to indent our code
+        "indent": ["error", 2],
+        // we want to avoid extraneous spaces
+        "no-multi-spaces": ["error"]
+    }
+}

@@ -15,7 +15,7 @@
               </div>
           </div>
           <div class="modal-footer">
-            <button id="modal-submit-button" @click="handleCloseModal">Close</button>      
+            <button id="modal-submit-button" @click="handleCloseModal">Close</button>
           </div>
       </div>
     </div>
@@ -26,13 +26,13 @@ export default {
   name: 'ModalCustom',
   methods: {
     handleCloseModal() {
-      console.log(this.isModalOpen)
-    }
+      console.log(this.isModalOpen);
+    },
   },
   props: {
-    isModalOpen: Boolean
-  }
-}
+    isModalOpen: Boolean,
+  },
+};
 </script>
 
 <style>
@@ -97,4 +97,3 @@ export default {
   font-weight: bold;
 }
 </style>
-

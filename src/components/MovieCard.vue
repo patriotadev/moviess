@@ -4,16 +4,15 @@
         <h3>{{movie.Title}}</h3>
         <p>Release Year : {{movie.Year}}</p>
     </div>
-   
 </template>
 
 <script>
 export default {
-    name: 'MovieCard',
-    props: {
-        movie: Object,
-    }
-}
+  name: 'MovieCard',
+  props: {
+    movie: Object,
+  },
+};
 </script>
 
 <style scoped>

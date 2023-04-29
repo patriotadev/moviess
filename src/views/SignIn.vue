@@ -4,8 +4,10 @@
         <div class="form-data">
             <div class="form-container">
                 <h1>Sign In</h1>
-                <input placeholder="Email" v-model="email" @change="(e) => email = e.target.value"  />
-                <input placeholder="password" v-model="password" type="Password" @change="(e) => password = e.target.value" />
+                <input placeholder="Email" v-model="email"
+                    @change="(e) => email = e.target.value"  />
+                <input placeholder="password" v-model="password"
+                    type="Password" @change="(e) => password = e.target.value" />
                 <button @click="signIn">Sign In</button>
             </div>
         </div>
@@ -14,22 +16,22 @@
 
 <script>
 export default {
-    name: 'SignIn',
-    data () {
-        return {
-            email: '',
-            password: ''
-        }
+  name: 'SignIn',
+  data() {
+    return {
+      email: '',
+      password: '',
+    };
+  },
+  methods: {
+    signIn() {
+      if (this.email === 'admin@mail.com' && this.password === 'secret') {
+        localStorage.setItem('user', this.email);
+        this.$router.push('/');
+      }
     },
-    methods: {
-        signIn() {
-            if (this.email === 'admin@mail.com' && this.password === 'secret') {
-                localStorage.setItem('user', this.email)
-                this.$router.push('/');
-            }
-        }
-    }
-}
+  },
+};
 </script>
 
 <style scoped>
